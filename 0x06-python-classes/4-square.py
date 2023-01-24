@@ -1,58 +1,52 @@
 #!/usr/bin/python3
-
 """Square with size
 Practicing private attributes within a class and public method
-
 """
 
 
-class Square ():
-    
+class Square:
+    """Square with size attribute, throws exceptions if size is not valid
+    and with a public method that returns the area
+    """
     def __init__(self, size=0):
-        """initallize the class
-
+        """ _size is initialized with size
         Args:
-            size (int): size of the square
+            size (int): size of the side of the square, should be greater
+            than zero, ValueError is raised. If it's not an integer,
+            a TypeError is raised.
+        Attributes:
+            size (int): the size of the square of this class set
+            by the initializer.
         """
-        if not isinstance(size , int):
-            raise TypeError ("size must be an integer")
-        else:
-            if size < 0:
-                raise ValueError ("size must be >= 0")
+        if type(size) is not int:
+            raise TypeError("size must be an integer")
+        if size < 0:
+            raise ValueError("size must be >= 0")
         self.__size = size
-    
 
     def area(self):
-        """return the area of the square 
-
+        """Calculates the area of this square
         Returns:
-            int : area
+            The area of the square
         """
-        return self.__size **2
+        return self.__size ** 2
 
     @property
     def size(self):
-        """size getter
-
+        """Get private attribute size
         Returns:
-            int : nothing 
+            The attribute size
         """
         return self.__size
-    
+
     @size.setter
-    def size (self, value):
-        """set the value of the size
-
+    def size(self, value):
+        """Sets this.__size to value
         Args:
-            value (int): size of the squere
-
-        Raises:
-            TypeError: raise when the size is not int
-            ValueError: raise whten the size is < 0
+            value (int): the integer that will be set to size
         """
-        if not isinstance(value , int):
-            raise TypeError ("size must be an integer")
-        else:
-            if value < 0:
-                raise ValueError ("size must be >= 0")
+        if type(value) is not int:
+            raise TypeError("size must be an integer")
+        if value < 0:
+            raise ValueError("size must be >= 0")
         self.__size = value
