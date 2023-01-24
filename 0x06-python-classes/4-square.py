@@ -1,5 +1,11 @@
 #!/usr/bin/python3
 
+"""Square with size
+Practicing private attributes within a class and public method
+
+"""
+
+
 class Square ():
     
     def __init__(self, size=0):
