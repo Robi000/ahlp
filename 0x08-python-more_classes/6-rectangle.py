@@ -1,6 +1,9 @@
 #!/usr/bin/python3
 # -*- coding: utf-8 -*-
 
+"""
+this is well documnetd module for me and my mamily 
+"""
 
 class Rectangle:
 
