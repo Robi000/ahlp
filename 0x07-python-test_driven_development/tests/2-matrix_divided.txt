@@ -1,0 +1,20 @@
+"""
+>>> matrix1 = [[1,2] , [2,1]]
+
+>>> matrix2 = [[1], [2]]
+
+>>> matrix3 = []
+
+>>> matrix4 = [[]]
+
+>>> matrix5 = [[0]]
+
+>>> matrix6 = [["1",2] , [2,1]]
+
+>>> matrix6 = [[True ,2] , [2,1]]
+
+>>> divide = __import__('2-matrix_divided').matrix_divided
+
+
+
+"""

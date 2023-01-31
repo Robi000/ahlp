@@ -1,0 +1,2 @@
+def no ():
+    print ("yes")

@@ -1,0 +1,53 @@
+"""
+>>> add = __import__('0-add_integer').add_integer
+
+>>> add(2, b=98)
+100
+
+>>> add(a=-1, b=98)
+97
+
+>>> add("2", 2)
+Traceback (most recent call last):
+TypeError: a must be an integer
+
+>>> add(2, "5")
+Traceback (most recent call last):
+TypeError: b must be an integer
+
+>>> add("2", "5")
+Traceback (most recent call last):
+TypeError: a must be an integer
+
+>>> add(1, 0.1)
+1
+
+>>> add(2.34)
+100
+
+>>> add("")
+Traceback (most recent call last):
+TypeError: a must be an integer
+
+>>> add("", "")
+Traceback (most recent call last):
+TypeError: a must be an integer
+
+>>> add(None)
+Traceback (most recent call last):
+TypeError: a must be an integer
+
+>>> add(None, None)
+Traceback (most recent call last):
+TypeError: a must be an integer
+
+>>> add(1, None)
+Traceback (most recent call last):
+TypeError: b must be an integer
+
+
+>>> add(None, 1)
+Traceback (most recent call last):
+TypeError: a must be an integer
+
+"""
