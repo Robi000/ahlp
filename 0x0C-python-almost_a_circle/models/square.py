@@ -25,14 +25,26 @@ class Square(Rectangle):
 
     @property
     def size(self):
+        """determine size 
+
+        Returns:
+            _type_: _description_
+        """
         return self.width
 
     @size.setter
     def size(self, value):
+        """gibe value of calue
+
+        Args:
+            value (_type_): _description_
+        """
         self.width = value
         self.height = value
 
     def update(self, *args, **kwargs):
+        """update the size of class
+        """
         if args:
             try:
                 self.id = args[0]
@@ -64,4 +76,5 @@ class Square(Rectangle):
         }
 
     def __str__(self):
+        """terutn string reper """
         return f"[Square] ({self.id}) {self.x}/{self.y} - {self.width}"
