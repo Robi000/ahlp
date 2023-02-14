@@ -3,6 +3,8 @@
 """
 base class for the base 
 """
+import json
+
 
 class Base():
 
@@ -25,4 +27,39 @@ class Base():
             Base.__nb_objects += 1
             self.id = self.__nb_objects
 
+    @staticmethod
+    def to_json_string(list_dictionaries):
+        """to json string 
 
+        Args:
+            list_dictionaries (dic): dic
+
+        Returns:
+            str: json str
+        """
+        if list_dictionaries is None or list_dictionaries == []:
+            return "[]"
+        return json.dumps(list_dictionaries)
+
+    @classmethod
+    def load_from_file(cls):
+        """Loads Base or Base-inherited objects from <cls>.json, and returns
+        the objects in a list of instances"""
+        try:
+            with open(cls.__name__ + ".json", "r") as f:
+                obj_dict_list = cls.from_json_string(f.read())
+                cls_objects = []
+                for i in obj_dict_list:
+                    cls_objects.append(cls.create(**i))
+                return cls_objects
+
+        except FileNotFoundError:
+            return []
+
+    def __del__(self):
+        """Deletes this object
+        __nb_objects is decreased by 1 only if the object had id initialized
+        to None"""
+        if Base.__nb_objects > 0:
+            Base.__nb_objects -= 1
+        del self
