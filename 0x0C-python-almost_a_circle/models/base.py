@@ -42,65 +42,65 @@ class Base():
         return json.dumps(list_dictionaries)
 
     @classmethod
-    def load_from_file(cls):
-        """Loads Base or Base-inherited objects from <cls>.json, and returns
-        the objects in a list of instances"""
-        try:
-            with open(cls.__name__ + ".json", "r") as f:
-                obj_dict_list = cls.from_json_string(f.read())
-                cls_objects = []
-                for i in obj_dict_list:
-                    cls_objects.append(cls.create(**i))
-                return cls_objects
+    def create(cls, **dictionary):
+        """create instance from dictinary 
 
-        except FileNotFoundError:
-            return []
+        Returns:
+            obj : rectnagele or squre object
+        """
+        if cls.__name__ == "Rectangle":
+            obj = cls(1, 1)
+        else:
+            obj = cls(1)
 
-    def __del__(self):
-        """Deletes this object
-        __nb_objects is decreased by 1 only if the object had id initialized
-        to None"""
-        if Base.__nb_objects > 0:
-            Base.__nb_objects -= 1
-        del self
-
+        obj.update(**dictionary)
+        return obj
 
     @classmethod
     def save_to_file(cls, list_objs):
-        """Saves the list of objects to a file with cls' class name (
-        clsName.json) in JSON format"""
+        """save obj to file 
 
-        with open(cls.__name__ + ".json", "w") as f:
-            if list_objs is None or list_objs == []:
-                f.write("[]")
-                return
-            for i in range(len(list_objs)):
-                if i == 0:
-                    f.write("[")
-                if i + 1 != len(list_objs):
-                    eol = ", "
-                else:
-                    eol = "]"
-                f.write(Base.to_json_string(list_objs[i].to_dictionary()) +
-                        eol)
-
+        Args:
+            list_objs (list ): object list 
+        """
+        name = cls.__name__+".json"
+        list_dictionaries = []
+        for obj in list_objs:
+            list_dictionaries.append(obj.to_dictionary())
+        # print(list_dictionaries)
+        with open(name, "w") as f:
+            f.write(Base.to_json_string(list_dictionaries))
 
     @staticmethod
     def from_json_string(json_string):
-        """Returns a list of objects stored in json_string. Deserializes
-        json_string"""
-        if json_string is None or json_string == [] or json_string == "":
-            return []
-        return json.loads(json_string)
+        """from json string to dic
 
+        Args:
+            json_string (string ): json string 
+
+        Returns:
+            dict : dict representation of the json string 
+        """
+        if json_string is None:
+            return []
+
+        else:
+            return json.loads(json_string)
 
     @classmethod
-    def create(cls, **dictionary):
-        """Creates a cls instance, then assigns all attributes in
-        **dictionary to the new instance"""
-        if cls.__name__ == "Rectangle":
-            instance = cls(1, 1)
-        elif cls.__name__ == "Square":
-            instance = cls(1)
-        instance.update(**dictionary)
-        return instance
+    def load_from_file(cls):
+        """create object from file 
+
+        Returns:
+            obj : created from file 
+        """
+        file_name = cls.__name__ + ".json"
+        try:
+            with open(file_name, "r") as f:
+                dict = cls.from_json_string(f.read())
+                lis_obj = []
+                for x in dict:
+                    lis_obj.append(cls.create(**x))
+                return lis_obj
+        except FileNotFoundError:
+            return []

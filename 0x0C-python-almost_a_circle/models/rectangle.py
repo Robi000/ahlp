@@ -61,6 +61,8 @@ class Rectangle(Base):
             print("#" * self.__width)
 
     def update(self, *args, **kwargs):
+        """this will update the rectangle object 
+        """
         if args:
             try:
                 self.id = args[0]
