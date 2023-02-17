@@ -9,7 +9,7 @@ import json
 class Base():
 
     """
-    the base class 
+    the base class  created verry cool very very cool base
 
     """
     __nb_objects = 0

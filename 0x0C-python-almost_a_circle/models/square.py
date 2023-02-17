@@ -7,6 +7,12 @@ from models.rectangle import Rectangle
 
 
 class Square(Rectangle):
+    """the squer classs
+
+    Args:
+        Rectangle (class): inherited from 
+    """
+
     def __init__(self, size, x=0, y=0, id=None):
         """assogming 
 
