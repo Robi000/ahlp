@@ -65,8 +65,9 @@ class Base():
         """
         name = cls.__name__+".json"
         list_dictionaries = []
-        for obj in list_objs:
-            list_dictionaries.append(obj.to_dictionary())
+        if list_objs != None:
+            for obj in list_objs:
+                list_dictionaries.append(obj.to_dictionary())
         # print(list_dictionaries)
         with open(name, "w") as f:
             f.write(Base.to_json_string(list_dictionaries))
