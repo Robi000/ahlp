@@ -1,12 +1,12 @@
 #!/usr/bin/python3
 
 """
-rectangle   class for the rectangle  
+square   class for the rectangle  
 """
 from models.rectangle import Rectangle
 
 
-class Square(Rectangle ):
+class Square(Rectangle):
     """the squer classs
 
     Args:
@@ -71,6 +71,11 @@ class Square(Rectangle ):
                     pass
 
     def to_dictionary(self):
+        """change square to dict
+
+        Returns:
+            dict: squar dict
+        """
         return {
             "id": self.id,
             "x": self.x,
@@ -79,5 +84,5 @@ class Square(Rectangle ):
         }
 
     def __str__(self):
-        """terutn string reper"""
+        """terutn string reper hahahahahahah"""
         return f"[Square] ({self.id}) {self.x}/{self.y} - {self.width}"
