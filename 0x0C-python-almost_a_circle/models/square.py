@@ -6,15 +6,15 @@ rectangle   class for the rectangle
 from models.rectangle import Rectangle
 
 
-class Square(Rectangle):
+class Square(Rectangle ):
     """the squer classs
 
     Args:
-        Rectangle (class): inherited from 
+        Rectangle (class): inherited from
     """
 
     def __init__(self, size, x=0, y=0, id=None):
-        """assogming 
+        """assogming
 
         Args:
             size (int): _description_
@@ -31,7 +31,7 @@ class Square(Rectangle):
 
     @property
     def size(self):
-        """determine size 
+        """determine size
 
         Returns:
             _type_: _description_
@@ -49,8 +49,7 @@ class Square(Rectangle):
         self.height = value
 
     def update(self, *args, **kwargs):
-        """update the size of class
-        """
+        """update the size of class"""
         if args:
             try:
                 self.id = args[0]
@@ -72,15 +71,13 @@ class Square(Rectangle):
                     pass
 
     def to_dictionary(self):
-        """return dictinary of the user
-        """
         return {
-            'id': self.id,
-            'x': self.x,
-            'y': self.y,
-            'size': self.width,
+            "id": self.id,
+            "x": self.x,
+            "y": self.y,
+            "size": self.width,
         }
 
     def __str__(self):
-        """terutn string reper """
+        """terutn string reper"""
         return f"[Square] ({self.id}) {self.x}/{self.y} - {self.width}"

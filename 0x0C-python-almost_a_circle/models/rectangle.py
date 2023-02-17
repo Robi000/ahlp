@@ -11,11 +11,11 @@ class Rectangle(Base):
 
 
     Args:
-        Base (class ): inherited from 
+        Base (class ): inherited from
     """
 
     def __init__(self, width, height, x=0, y=0, id=None):
-        """initial the class with data 
+        """initial the class with data
 
         Args:
             width (int): >0
@@ -54,22 +54,20 @@ class Rectangle(Base):
         """return area
 
         Returns:
-            int: area 
+            int: area
         """
         return self.__width * self.__height
 
     def display(self):
-        """display the rectangle using #
-        """
+        """display the rectangle using #"""
         for x in range(self.__y):
             print()
         for x in range(self.__height):
-            print(" "*self.__x, end="")
+            print(" " * self.__x, end="")
             print("#" * self.__width)
 
     def update(self, *args, **kwargs):
-        """this will update the rectangle object 
-        """
+        """this will update the rectangle object"""
         if args:
             try:
                 self.id = args[0]
@@ -84,7 +82,7 @@ class Rectangle(Base):
                 self.__setattr__(key, kwargs[key])
 
     def __str__(self):
-        """return string representation 
+        """return string representation
 
         Returns:
             string : ---
@@ -92,14 +90,13 @@ class Rectangle(Base):
         return f"[Rectangle] ({self.id}) {self.__x}/{self.__y} - {self.__width}/{self.__height}"
 
     def to_dictionary(self):
-        """return dictinary of the user
-        """
+        """return dictinary of the user"""
         return {
-            'id': self.id,
-            'x': self.x,
-            'y': self.y,
-            'width': self.width,
-            'height': self.height
+            "id": self.id,
+            "x": self.x,
+            "y": self.y,
+            "width": self.width,
+            "height": self.height,
         }
 
     @property
@@ -137,10 +134,10 @@ class Rectangle(Base):
 
     @height.setter
     def height(self, value):
-        """set height 
+        """set height
 
         Args:
-            value (int): return height 
+            value (int): return height
         """
         height = value
         if not isinstance(height, int):
@@ -185,7 +182,7 @@ class Rectangle(Base):
 
     @y.setter
     def y(self, value):
-        """set y 
+        """set y
 
         Args:
             value (int): y value
