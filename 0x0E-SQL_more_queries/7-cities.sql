@@ -1,11 +1,10 @@
--- create table default value 
+-- creates the database hbtn_0d_usa and the table cities
+-- (in the database hbtn_0d_usa) on your MySQL server.
 CREATE DATABASE IF NOT EXISTS hbtn_0d_usa;
 USE hbtn_0d_usa;
-create table IF NOT EXISTS cities(
-    id INT UNIQUE NOT NULL AUTO_INCREMENT ,
-    name VARCHAR(256) NOT NULL,
-    state_id INT Not NULL,
-    PRIMARY KEY ( id ),
-    CONSTRAINT FK_STATES_ID FOREIGN KEY (state_id) REFERENCES states(id)
-
-)
+CREATE TABLE IF NOT EXISTS cities (
+    id INT UNIQUE PRIMARY KEY AUTO_INCREMENT NOT NULL,
+    state_id INT NOT NULL,
+    CONSTRAINT FK_STATES_ID FOREIGN KEY (state_id) REFERENCES states(id),
+    name VARCHAR(256) NOT NULL
+);
